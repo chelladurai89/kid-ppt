@@ -36,7 +36,7 @@
         <p class="card__hint">Look at the picture and tap the letter that the word begins with.</p>
         <div class="prompt" id="prompt"></div>
         <div class="options" id="options" role="group" aria-label="Letter choices"></div>
-        <p class="feedback" id="feedback"></p>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
       </section>
 
       <section class="card card--hidden" id="stage-2" aria-live="polite">
@@ -52,12 +52,12 @@
             <div class="match-list" id="letter-list"></div>
           </div>
         </div>
-        <p class="feedback" id="match-feedback"></p>
+        <p class="feedback" id="match-feedback" role="status" aria-live="polite"></p>
       </section>
 
       <section class="card card--hidden" id="stage-complete" aria-live="polite">
         <h2>Great Job!</h2>
-        <p id="completion-message"></p>
+        <p id="completion-message" role="status" aria-live="polite"></p>
         <button id="restart" class="button">Play Again</button>
       </section>
     </main>

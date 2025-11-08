@@ -60,6 +60,11 @@ function updateProgress() {
   lettersMasteredElement.textContent = masteredLetters.size;
   const percent = (masteredLetters.size / totalLettersSet.size) * 100;
   progressFillElement.style.width = `${percent}%`;
+  progressBarElement.setAttribute("aria-valuenow", masteredLetters.size);
+  progressBarElement.setAttribute(
+    "aria-valuetext",
+    `${masteredLetters.size} of ${totalLettersSet.size} letters mastered`
+  );
 }
 
 function speakMessage(message) {
@@ -68,6 +73,7 @@ function speakMessage(message) {
   }
   const utterance = new SpeechSynthesisUtterance(message);
   utterance.lang = "en-US";
+  utterance.rate = 0.8;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 }
@@ -75,6 +81,9 @@ function speakMessage(message) {
 function renderStage1Question() {
   const current = stage1Queue[stage1Index];
   promptElement.innerHTML = `
+    <figure class="prompt__figure">
+      <div class="prompt__image" role="img" aria-label="${current.word}">${current.emoji}</div>
+    </figure>
     <div class="prompt__image" role="img" aria-label="${current.word}">${current.emoji}</div>
     <div class="prompt__word">Which letter does this word start with?</div>
   `;
@@ -104,6 +113,7 @@ function handleStage1Answer(letter, current) {
   const buttons = optionsElement.querySelectorAll("button");
   buttons.forEach((btn) => {
     btn.disabled = true;
+    btn.setAttribute("aria-disabled", "true");
   });
 
   if (letter === current.letter) {
@@ -123,11 +133,16 @@ function handleStage1Answer(letter, current) {
       }
     }, 1600);
   } else {
+    const message = "Try again! You can do it.";
     const message = `Nice try! ${capitalize(current.word)} begins with "${current.letter}".`;
     feedbackElement.textContent = message;
     feedbackElement.classList.add("feedback--warning");
     speakMessage(message);
 
+    buttons.forEach((btn) => {
+      btn.disabled = false;
+      btn.removeAttribute("aria-disabled");
+    });
     setTimeout(() => {
       buttons.forEach((btn) => {
         btn.disabled = false;
@@ -216,6 +231,8 @@ function checkMatchAttempt() {
     selectedLetter.classList.add("match-card--matched");
     selectedPicture.disabled = true;
     selectedLetter.disabled = true;
+    selectedPicture.setAttribute("aria-disabled", "true");
+    selectedLetter.setAttribute("aria-disabled", "true");
 
     const word = selectedPicture.querySelector(".match-card__word").textContent;
     const message = `${word} matches the letter "${guessedLetter}". Great work!`;
@@ -230,6 +247,9 @@ function checkMatchAttempt() {
       finishAdventure();
     }
   } else {
+    matchFeedbackElement.textContent = "Try again!";
+    matchFeedbackElement.className = "feedback feedback--warning";
+    speakMessage("Try again.");
     matchFeedbackElement.textContent = `Oops! Try a different letter for that picture.`;
     matchFeedbackElement.className = "feedback feedback--warning";
     speakMessage("Try another letter.");

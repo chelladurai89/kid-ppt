@@ -86,6 +86,40 @@ body {
   margin-top: 0.1rem;
 }
 
+
+.prompt {
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  text-align: center;
+  width: 100%;
+}
+
+.prompt__figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.prompt__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(220px, 40vw, 320px);
+  height: clamp(220px, 40vw, 320px);
+  font-size: clamp(8rem, 18vw, 14rem);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(233, 235, 255, 0.6));
+  border-radius: 32px;
+  box-shadow: 0 18px 36px rgba(80, 71, 214, 0.14);
+}
+
+.prompt__word {
+  font-size: clamp(2rem, 4vw, 2.75rem);
 .prompt {
   margin: 1.25rem 0;
   display: flex;
@@ -108,12 +142,18 @@ body {
 
 .options {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 0.75rem;
 }
 
 .option-button {
   border: none;
+  border-radius: 20px;
+  padding: 1.25rem 0;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 700;
   border-radius: 18px;
   padding: 1rem 0;
   font-size: 1.5rem;
