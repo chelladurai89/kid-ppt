@@ -30,6 +30,7 @@ const pictureListElement = document.getElementById("picture-list");
 const letterListElement = document.getElementById("letter-list");
 const lettersMasteredElement = document.getElementById("letters-mastered");
 const lettersTotalElement = document.getElementById("letters-total");
+const progressBarElement = document.getElementById("progress-bar");
 const progressFillElement = document.getElementById("progress-fill");
 const completionMessageElement = document.getElementById("completion-message");
 const restartButton = document.getElementById("restart");
@@ -47,6 +48,11 @@ let selectedPicture = null;
 let selectedLetter = null;
 
 lettersTotalElement.textContent = totalLettersSet.size;
+progressBarElement.setAttribute("aria-valuemax", totalLettersSet.size);
+progressBarElement.setAttribute(
+  "aria-valuetext",
+  `${masteredLetters.size} of ${totalLettersSet.size} letters mastered`
+);
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i -= 1) {
@@ -60,6 +66,11 @@ function updateProgress() {
   lettersMasteredElement.textContent = masteredLetters.size;
   const percent = (masteredLetters.size / totalLettersSet.size) * 100;
   progressFillElement.style.width = `${percent}%`;
+  progressBarElement.setAttribute("aria-valuenow", masteredLetters.size);
+  progressBarElement.setAttribute(
+    "aria-valuetext",
+    `${masteredLetters.size} of ${totalLettersSet.size} letters mastered`
+  );
 }
 
 function speakMessage(message) {
@@ -105,6 +116,7 @@ function handleStage1Answer(letter, current) {
   const buttons = optionsElement.querySelectorAll("button");
   buttons.forEach((btn) => {
     btn.disabled = true;
+    btn.setAttribute("aria-disabled", "true");
   });
 
   if (letter === current.letter) {
@@ -131,6 +143,7 @@ function handleStage1Answer(letter, current) {
 
     buttons.forEach((btn) => {
       btn.disabled = false;
+      btn.removeAttribute("aria-disabled");
     });
   }
 }
@@ -215,6 +228,8 @@ function checkMatchAttempt() {
     selectedLetter.classList.add("match-card--matched");
     selectedPicture.disabled = true;
     selectedLetter.disabled = true;
+    selectedPicture.setAttribute("aria-disabled", "true");
+    selectedLetter.setAttribute("aria-disabled", "true");
 
     const word = selectedPicture.querySelector(".match-card__word").textContent;
     const message = `${word} matches the letter "${guessedLetter}". Great work!`;
