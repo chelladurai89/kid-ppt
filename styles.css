@@ -1,0 +1,232 @@
+:root {
+  --bg: #f3f4ff;
+  --card-bg: #ffffff;
+  --accent: #6c63ff;
+  --accent-dark: #5047d6;
+  --success: #27ae60;
+  --warning: #e67e22;
+  --text: #2c2c54;
+  --muted: #6b6b8f;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Baloo 2", "Comic Sans MS", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f3f4ff 0%, #f9f9ff 100%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.app__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.app__header h1 {
+  margin-bottom: 0.25rem;
+  font-size: 2.5rem;
+}
+
+.app__tagline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.progress {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress__bar {
+  width: min(100%, 420px);
+  height: 14px;
+  background-color: rgba(108, 99, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress__bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent) 0%, #8a82ff 100%);
+  transition: width 0.4s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(80, 71, 214, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card--hidden {
+  display: none;
+}
+
+.card__hint {
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+
+.prompt {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.prompt__image {
+  font-size: clamp(6rem, 10vw, 8rem);
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
+}
+
+.prompt__word {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.option-button {
+  border: none;
+  border-radius: 20px;
+  padding: 1.25rem 0;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 700;
+  background-color: rgba(108, 99, 255, 0.15);
+  color: var(--accent-dark);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.option-button:hover,
+.option-button:focus {
+  transform: translateY(-3px);
+  background-color: rgba(108, 99, 255, 0.3);
+  outline: none;
+}
+
+.option-button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.feedback {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.feedback--success {
+  color: var(--success);
+}
+
+.feedback--warning {
+  color: var(--warning);
+}
+
+.match-area {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .match-area {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.match-area__column h3 {
+  margin-top: 0;
+}
+
+.match-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.match-card {
+  background-color: rgba(108, 99, 255, 0.12);
+  border-radius: 20px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  min-height: 90px;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.match-card--picture {
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.match-card__emoji {
+  font-size: 3rem;
+}
+
+.match-card--selected {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(108, 99, 255, 0.2);
+  background-color: rgba(108, 99, 255, 0.3);
+}
+
+.match-card--matched {
+  background-color: rgba(39, 174, 96, 0.2);
+  color: var(--success);
+  cursor: default;
+  box-shadow: none;
+}
+
+.button {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 999px;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover,
+.button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(108, 99, 255, 0.4);
+  outline: none;
+}
+
+.app__footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
