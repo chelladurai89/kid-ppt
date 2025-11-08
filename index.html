@@ -11,6 +11,7 @@
       <header class="app__header">
         <h1>Alphabet Adventure</h1>
         <p class="app__tagline">Learn the starting sounds of words step by step!</p>
+
         <div class="progress">
           <div class="progress__text" role="status" aria-live="polite">
             Letters mastered: <span id="letters-mastered">0</span>/<span id="letters-total">0</span>
@@ -35,7 +36,7 @@
         <p class="card__hint">Look at the picture and tap the letter that the word begins with.</p>
         <div class="prompt" id="prompt"></div>
         <div class="options" id="options" role="group" aria-label="Letter choices"></div>
-        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        <p class="feedback" id="feedback"></p>
       </section>
 
       <section class="card card--hidden" id="stage-2" aria-live="polite">
@@ -51,12 +52,12 @@
             <div class="match-list" id="letter-list"></div>
           </div>
         </div>
-        <p class="feedback" id="match-feedback" role="status" aria-live="polite"></p>
+        <p class="feedback" id="match-feedback"></p>
       </section>
 
       <section class="card card--hidden" id="stage-complete" aria-live="polite">
         <h2>Great Job!</h2>
-        <p id="completion-message" role="status" aria-live="polite"></p>
+        <p id="completion-message"></p>
         <button id="restart" class="button">Play Again</button>
       </section>
     </main>
