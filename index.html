@@ -11,9 +11,21 @@
       <header class="app__header">
         <h1>Alphabet Adventure</h1>
         <p class="app__tagline">Learn the starting sounds of words step by step!</p>
-        <div class="progress" aria-live="polite">
-          <div class="progress__text">Letters mastered: <span id="letters-mastered">0</span>/<span id="letters-total">0</span></div>
-          <div class="progress__bar" role="img" aria-label="Progress bar">
+
+        <div class="progress">
+          <div class="progress__text" role="status" aria-live="polite">
+            Letters mastered: <span id="letters-mastered">0</span>/<span id="letters-total">0</span>
+          </div>
+          <div
+            class="progress__bar"
+            id="progress-bar"
+            role="progressbar"
+            aria-label="Letters mastered"
+            aria-valuemin="0"
+            aria-valuemax="0"
+            aria-valuenow="0"
+            aria-valuetext="0 of 0 letters mastered"
+          >
             <div class="progress__bar-fill" id="progress-fill"></div>
           </div>
         </div>
