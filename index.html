@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alphabet Adventure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Alphabet Adventure</h1>
+        <p class="app__tagline">Learn the starting sounds of words step by step!</p>
+        <div class="progress">
+          <div class="progress__text" role="status" aria-live="polite">
+            Letters mastered: <span id="letters-mastered">0</span>/<span id="letters-total">0</span>
+          </div>
+          <div
+            class="progress__bar"
+            id="progress-bar"
+            role="progressbar"
+            aria-label="Letters mastered"
+            aria-valuemin="0"
+            aria-valuemax="0"
+            aria-valuenow="0"
+            aria-valuetext="0 of 0 letters mastered"
+          >
+            <div class="progress__bar-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="card" id="stage-1" aria-live="polite">
+        <h2>Step 1: Pick the Starting Letter</h2>
+        <p class="card__hint">Look at the picture and tap the letter that the word begins with.</p>
+        <div class="prompt" id="prompt"></div>
+        <div class="options" id="options" role="group" aria-label="Letter choices"></div>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card card--hidden" id="stage-2" aria-live="polite">
+        <h2>Step 2: Match Pictures to Letters</h2>
+        <p class="card__hint">Match each picture with the letter it starts with. Take your time!</p>
+        <div class="match-area">
+          <div class="match-area__column" aria-label="Pictures">
+            <h3>Pictures</h3>
+            <div class="match-list" id="picture-list"></div>
+          </div>
+          <div class="match-area__column" aria-label="Letters">
+            <h3>Letters</h3>
+            <div class="match-list" id="letter-list"></div>
+          </div>
+        </div>
+        <p class="feedback" id="match-feedback" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card card--hidden" id="stage-complete" aria-live="polite">
+        <h2>Great Job!</h2>
+        <p id="completion-message" role="status" aria-live="polite"></p>
+        <button id="restart" class="button">Play Again</button>
+      </section>
+    </main>
+
+    <footer class="app__footer">
+      <p>Made with care for curious kids 🌟</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
