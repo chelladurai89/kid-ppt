@@ -30,14 +30,13 @@ const pictureListElement = document.getElementById("picture-list");
 const letterListElement = document.getElementById("letter-list");
 const lettersMasteredElement = document.getElementById("letters-mastered");
 const lettersTotalElement = document.getElementById("letters-total");
-const progressBarElement = document.getElementById("progress-bar");
 const progressFillElement = document.getElementById("progress-fill");
 const completionMessageElement = document.getElementById("completion-message");
 const restartButton = document.getElementById("restart");
 
 const sortedByDifficulty = [...vocabulary].sort((a, b) => a.difficulty - b.difficulty || a.word.localeCompare(b.word));
 const stage1Words = sortedByDifficulty.slice(0, 5);
-const stage2Words = sortedByDifficulty.slice(5);
+const stage2Words = sortedByDifficulty.slice(5, 11);
 const totalLettersSet = new Set([...stage1Words, ...stage2Words].map((item) => item.letter));
 let masteredLetters = new Set();
 
@@ -48,11 +47,6 @@ let selectedPicture = null;
 let selectedLetter = null;
 
 lettersTotalElement.textContent = totalLettersSet.size;
-progressBarElement.setAttribute("aria-valuemax", totalLettersSet.size);
-progressBarElement.setAttribute(
-  "aria-valuetext",
-  `${masteredLetters.size} of ${totalLettersSet.size} letters mastered`
-);
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i -= 1) {
@@ -90,6 +84,7 @@ function renderStage1Question() {
     <figure class="prompt__figure">
       <div class="prompt__image" role="img" aria-label="${current.word}">${current.emoji}</div>
     </figure>
+    <div class="prompt__image" role="img" aria-label="${current.word}">${current.emoji}</div>
     <div class="prompt__word">Which letter does this word start with?</div>
   `;
   optionsElement.innerHTML = "";
@@ -139,6 +134,7 @@ function handleStage1Answer(letter, current) {
     }, 1600);
   } else {
     const message = "Try again! You can do it.";
+    const message = `Nice try! ${capitalize(current.word)} begins with "${current.letter}".`;
     feedbackElement.textContent = message;
     feedbackElement.classList.add("feedback--warning");
     speakMessage(message);
@@ -147,6 +143,11 @@ function handleStage1Answer(letter, current) {
       btn.disabled = false;
       btn.removeAttribute("aria-disabled");
     });
+    setTimeout(() => {
+      buttons.forEach((btn) => {
+        btn.disabled = false;
+      });
+    }, 800);
   }
 }
 
@@ -249,6 +250,9 @@ function checkMatchAttempt() {
     matchFeedbackElement.textContent = "Try again!";
     matchFeedbackElement.className = "feedback feedback--warning";
     speakMessage("Try again.");
+    matchFeedbackElement.textContent = `Oops! Try a different letter for that picture.`;
+    matchFeedbackElement.className = "feedback feedback--warning";
+    speakMessage("Try another letter.");
 
     setTimeout(() => {
       if (selectedPicture) selectedPicture.classList.remove("match-card--selected");
