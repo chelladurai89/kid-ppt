@@ -1,0 +1,33 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffebee"/>
+
+  <!-- Table surface -->
+  <rect x="100" y="450" width="600" height="20" fill="#8d6e63" rx="5"/>
+
+  <!-- Apple shadow -->
+  <ellipse cx="400" cy="455" rx="100" ry="20" fill="#000" opacity="0.2"/>
+
+  <!-- Apple body -->
+  <ellipse cx="400" cy="320" rx="120" ry="140" fill="#f44336"/>
+
+  <!-- Apple bottom indent -->
+  <ellipse cx="400" cy="440" rx="40" ry="20" fill="#c62828"/>
+
+  <!-- Apple top indent -->
+  <ellipse cx="400" cy="195" rx="30" ry="15" fill="#c62828"/>
+
+  <!-- Stem -->
+  <rect x="395" y="160" width="10" height="40" fill="#5d4037" rx="3"/>
+
+  <!-- Leaf -->
+  <ellipse cx="420" cy="175" rx="30" ry="15" fill="#66bb6a" transform="rotate(30 420 175)"/>
+  <path d="M 410 175 Q 420 170 430 175" stroke="#388e3c" stroke-width="2" fill="none"/>
+
+  <!-- Apple highlight (makes it look shiny) -->
+  <ellipse cx="350" cy="270" rx="40" ry="60" fill="#ffcdd2" opacity="0.6"/>
+  <ellipse cx="360" cy="250" rx="25" ry="35" fill="#fff" opacity="0.4"/>
+
+  <!-- Text label -->
+  <text x="400" y="550" font-size="42" font-family="Arial, sans-serif" text-anchor="middle" fill="#c62828" font-weight="bold">An Apple</text>
+</svg>

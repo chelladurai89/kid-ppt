@@ -1,0 +1,27 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#e8f5e9"/>
+
+  <!-- Ground -->
+  <rect x="0" y="480" width="800" height="120" fill="#a5d6a7"/>
+
+  <!-- Ball shadow -->
+  <ellipse cx="400" cy="475" rx="120" ry="30" fill="#000" opacity="0.2"/>
+
+  <!-- Ball -->
+  <circle cx="400" cy="300" r="150" fill="#f44336"/>
+
+  <!-- Ball highlight -->
+  <ellipse cx="350" cy="250" rx="50" ry="70" fill="#ffcdd2" opacity="0.7"/>
+
+  <!-- Ball pattern (pentagon panels like a soccer ball, but in red) -->
+  <path d="M 400 180 L 430 220 L 410 260 L 370 260 L 350 220 Z" fill="#c62828" opacity="0.5"/>
+  <path d="M 470 280 L 500 320 L 480 360 L 440 360 L 420 320 Z" fill="#c62828" opacity="0.5"/>
+  <path d="M 330 280 L 360 320 L 340 360 L 300 360 L 280 320 Z" fill="#c62828" opacity="0.5"/>
+
+  <!-- Additional shading for 3D effect -->
+  <path d="M 400 150 Q 550 300 400 450" fill="#000" opacity="0.1"/>
+
+  <!-- Text label -->
+  <text x="400" y="560" font-size="42" font-family="Arial, sans-serif" text-anchor="middle" fill="#c62828" font-weight="bold">Red Ball</text>
+</svg>

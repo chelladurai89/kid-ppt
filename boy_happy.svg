@@ -1,0 +1,47 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with sun -->
+  <rect width="800" height="600" fill="#fff9c4"/>
+
+  <!-- Sun -->
+  <circle cx="650" cy="100" r="60" fill="#fdd835"/>
+  <line x1="650" y1="30" x2="650" y2="10" stroke="#fdd835" stroke-width="6" stroke-linecap="round"/>
+  <line x1="720" y1="100" x2="740" y2="100" stroke="#fdd835" stroke-width="6" stroke-linecap="round"/>
+  <line x1="700" y1="150" x2="715" y2="165" stroke="#fdd835" stroke-width="6" stroke-linecap="round"/>
+  <line x1="700" y1="50" x2="715" y2="35" stroke="#fdd835" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Ground -->
+  <rect x="0" y="480" width="800" height="120" fill="#aed581"/>
+
+  <!-- Happy boy -->
+  <!-- Head -->
+  <circle cx="400" cy="270" r="90" fill="#ffb74d"/>
+
+  <!-- Hair -->
+  <path d="M 320 240 Q 400 200 480 240" fill="#3e2723"/>
+  <circle cx="350" cy="220" r="25" fill="#3e2723"/>
+  <circle cx="400" cy="210" r="25" fill="#3e2723"/>
+  <circle cx="450" cy="220" r="25" fill="#3e2723"/>
+
+  <!-- Body -->
+  <rect x="335" y="360" width="130" height="120" rx="15" fill="#66bb6a"/>
+
+  <!-- Arms raised (happy gesture) -->
+  <rect x="250" y="360" width="85" height="35" rx="17" fill="#ffb74d" transform="rotate(-45 292 377)"/>
+  <rect x="465" y="360" width="85" height="35" rx="17" fill="#ffb74d" transform="rotate(45 508 377)"/>
+
+  <!-- Legs -->
+  <rect x="345" y="480" width="45" height="90" rx="10" fill="#1976d2"/>
+  <rect x="410" y="480" width="45" height="90" rx="10" fill="#1976d2"/>
+
+  <!-- Happy face -->
+  <circle cx="370" cy="260" r="14" fill="#333"/>
+  <circle cx="430" cy="260" r="14" fill="#333"/>
+  <!-- Big smile -->
+  <path d="M 350 290 Q 400 320 450 290" stroke="#333" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- Rosy cheeks -->
+  <circle cx="345" cy="285" r="18" fill="#ff8a80" opacity="0.5"/>
+  <circle cx="455" cy="285" r="18" fill="#ff8a80" opacity="0.5"/>
+
+  <!-- Text label -->
+  <text x="400" y="570" font-size="42" font-family="Arial, sans-serif" text-anchor="middle" fill="#388e3c" font-weight="bold">Happy Boy</text>
+</svg>
