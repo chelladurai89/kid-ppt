@@ -1,0 +1,43 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f3e5f5"/>
+
+  <!-- Box -->
+  <rect x="250" y="300" width="300" height="250" fill="#a1887f" stroke="#6d4c41" stroke-width="4"/>
+  <rect x="250" y="300" width="300" height="30" fill="#8d6e63"/>
+
+  <!-- Cat in box -->
+  <!-- Body -->
+  <ellipse cx="400" cy="420" rx="80" ry="70" fill="#ff9800"/>
+
+  <!-- Head -->
+  <circle cx="400" cy="350" r="60" fill="#ff9800"/>
+
+  <!-- Ears -->
+  <path d="M 360 320 L 340 280 L 370 310 Z" fill="#ff9800" stroke="#e65100" stroke-width="2"/>
+  <path d="M 440 320 L 460 280 L 430 310 Z" fill="#ff9800" stroke="#e65100" stroke-width="2"/>
+  <!-- Ear inner -->
+  <path d="M 360 315 L 350 290 L 368 308 Z" fill="#ffb74d"/>
+  <path d="M 440 315 L 450 290 L 432 308 Z" fill="#ffb74d"/>
+
+  <!-- Eyes -->
+  <ellipse cx="380" cy="345" rx="12" ry="20" fill="#4caf50"/>
+  <ellipse cx="420" cy="345" rx="12" ry="20" fill="#4caf50"/>
+  <circle cx="380" cy="350" r="6" fill="#000"/>
+  <circle cx="420" cy="350" r="6" fill="#000"/>
+
+  <!-- Nose -->
+  <path d="M 400 365 L 395 375 L 405 375 Z" fill="#e65100"/>
+
+  <!-- Whiskers -->
+  <line x1="340" y1="360" x2="300" y2="355" stroke="#333" stroke-width="2"/>
+  <line x1="340" y1="370" x2="300" y2="375" stroke="#333" stroke-width="2"/>
+  <line x1="460" y1="360" x2="500" y2="355" stroke="#333" stroke-width="2"/>
+  <line x1="460" y1="370" x2="500" y2="375" stroke="#333" stroke-width="2"/>
+
+  <!-- Tail -->
+  <path d="M 470 420 Q 520 400 540 440" stroke="#ff9800" stroke-width="20" fill="none" stroke-linecap="round"/>
+
+  <!-- Text label -->
+  <text x="400" y="570" font-size="42" font-family="Arial, sans-serif" text-anchor="middle" fill="#6a1b9a" font-weight="bold">Cat in Box</text>
+</svg>
